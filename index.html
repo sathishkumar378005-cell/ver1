@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Latha Oil Mill | Cold-pressed oils delivered</title>
+  <meta name="description" content="Wood-pressed groundnut, sesame and coconut oils from our mill to your kitchen. Pay securely online.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="/">Latha Oil Mill</a>
+      <nav>
+        <a href="#oils" class="hide-sm">Our oils</a>
+        <a href="#how" class="hide-sm">How ordering works</a>
+        <a href="/track">Track order</a>
+        <button class="cart-btn" id="openCart" type="button">Cart <span id="cartCount">0</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Pressed slowly in wood. Poured fresh for your kitchen.</h1>
+        <p>Groundnut, sesame and coconut oils from our own mill, with no heating and no refining. Pay online and we pack it the same day.</p>
+        <a class="btn oil" href="#oils">Shop oils</a>
+      </div>
+      <svg viewBox="0 0 320 320" role="img" aria-label="Traditional oil press wheel">
+        <g class="wheel" fill="none" stroke="#d9a21b" stroke-width="6" stroke-linecap="round">
+          <circle cx="160" cy="160" r="140"/>
+          <circle cx="160" cy="160" r="112" stroke-width="2" opacity=".6"/>
+          <circle cx="160" cy="160" r="22" fill="#d9a21b"/>
+          <path d="M160 20V138M160 182V300M20 160H138M182 160H300M61 61l84 84M175 175l84 84M259 61l-84 84M145 175l-84 84"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <main>
+    <section class="block" id="oils">
+      <div class="wrap">
+        <h2>Our oils</h2>
+        <p class="sub">Free delivery on orders above <span id="freeAbove">₹999</span>.</p>
+        <div class="grid" id="grid" aria-live="polite"><p class="empty">Loading oils…</p></div>
+      </div>
+    </section>
+
+    <section class="block how" id="how">
+      <div class="wrap">
+        <h2>How ordering works</h2>
+        <p class="sub">We accept online payments only (UPI, cards and net banking). Cash on delivery is not available.</p>
+        <ul>
+          <li><b>Pick your oils</b>Add bottles and cans to your cart.</li>
+          <li><b>Pay securely</b>Razorpay handles the payment. We never see your card or bank details.</li>
+          <li><b>We pack and ship</b>You get an order number to track delivery on this site.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">© Latha Oil Mill. Orders are confirmed only after online payment succeeds.</div></footer>
+
+  <div class="scrim" id="scrim"></div>
+  <aside class="drawer" id="drawer" aria-label="Shopping cart" aria-hidden="true">
+    <header><h2>Your cart</h2><button class="icon-btn" id="closeCart" type="button" aria-label="Close cart">×</button></header>
+    <div class="lines" id="lines"></div>
+    <footer>
+      <div class="sum"><span>Subtotal</span><span id="sSub">₹0</span></div>
+      <div class="sum"><span>Delivery</span><span id="sShip">₹0</span></div>
+      <div class="sum total"><span>Total</span><span id="sTotal">₹0</span></div>
+      <button class="btn" id="checkout" type="button" style="width:100%;margin-top:12px" disabled>Continue to payment</button>
+    </footer>
+  </aside>
+
+  <dialog id="dlg">
+    <div class="dlg-body" id="formView">
+      <h2>Delivery details</h2>
+      <form id="form" novalidate>
+        <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="two">
+          <div class="field"><label for="f-phone">Mobile number</label><input id="f-phone" name="phone" inputmode="numeric" maxlength="10" autocomplete="tel-national" required></div>
+          <div class="field"><label for="f-email">Email (optional)</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+        </div>
+        <div class="field"><label for="f-address">Address</label><textarea id="f-address" name="address" rows="2" autocomplete="street-address" required></textarea></div>
+        <div class="two">
+          <div class="field"><label for="f-city">City</label><input id="f-city" name="city" autocomplete="address-level2" required></div>
+          <div class="field"><label for="f-state">State</label><input id="f-state" name="state" autocomplete="address-level1" value="Puducherry" required></div>
+        </div>
+        <div class="field" style="max-width:200px"><label for="f-pin">Pincode</label><input id="f-pin" name="pincode" inputmode="numeric" maxlength="6" autocomplete="postal-code" required></div>
+        <p class="note">Total to pay: <b id="dTotal"></b>. Payment is online only. Your order is confirmed after payment succeeds.</p>
+        <p class="err" id="formErr" role="alert"></p>
+        <div class="actions">
+          <button class="btn ghost" type="button" id="dCancel">Back to cart</button>
+          <button class="btn" type="submit" id="payBtn">Pay now</button>
+        </div>
+      </form>
+    </div>
+    <div class="dlg-body" id="resultView" hidden></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

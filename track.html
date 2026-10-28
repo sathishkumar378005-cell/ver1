@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Track your order | Latha Oil Mill</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="top"><div class="wrap"><a class="brand" href="/">Latha Oil Mill</a><nav><a href="/">Shop</a></nav></div></header>
+  <main class="wrap page" style="max-width:720px">
+    <h1>Track your order</h1>
+    <p class="sub">Enter the order number from your confirmation and the mobile number you ordered with.</p>
+    <form id="tf" class="panel" novalidate>
+      <div class="two">
+        <div class="field"><label for="t-no">Order number</label><input id="t-no" required autocomplete="off"></div>
+        <div class="field"><label for="t-ph">Mobile number</label><input id="t-ph" inputmode="numeric" maxlength="10" required></div>
+      </div>
+      <p class="err" id="tErr" role="alert"></p>
+      <button class="btn" type="submit">Check status</button>
+    </form>
+    <div id="result"></div>
+  </main>
+  <script src="/js/track.js"></script>
+</body>
+</html>
